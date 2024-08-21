@@ -1,0 +1,57 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Create Listing -ICON DIGITAL
+  </title>
+<script type="module" src="https://unpkg.com/ionicons@7.1.@/dist/ionic
+ons/ionicons.esm.js"></script>
+<script nomodule
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script><link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+</script>
+</head>
+{% block body %}
+<body>
+  <h2>Create New Listing</h2>
+
+  {% if message %}
+      <div>{{ message }}</div>
+  {% endif %}
+
+  <form action ="{% url 'create' %}" method="post">
+    {% csrf_token %}
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Bid</label>
+        <input type="text" name="bid" class="form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="form-group">
+        <label>Image URL</label>
+        <input type="text" name="image_url" class="form-control" id="exampleFormControlInput1">
+      </div>
+              <div class="form-gruop">
+                <label>Category</label>
+                <select name="category" class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="Sedan & Saloon">Sedan & Saloon</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Coupes">Coupes</option>
+                    <option value="Truck">Truck</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary1" display="block" filter= "drop-shadow(0 0 10px #fffdef)" >Submit</button>
+
+    </form>
+  </section>
+{% endblock %}
+

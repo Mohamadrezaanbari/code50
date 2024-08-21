@@ -1,0 +1,39 @@
+{% extends "CRUD/layout.html" %}
+
+{% block title %}
+    <title>Show Page</title>
+{% endblock %}
+
+{% block content %}
+<h1>Show Users</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Profession</th>
+        <th scope="col">Address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj %}
+      <tr>
+        <td>{{i.uid}}</td>
+        <td>{{i.firstName}}</td>
+        <td>{{i.lastName}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.profession}}</td>
+        <td>{{i.Address}}</td>
+        <td>
+            <button class="btn btn-warning"><a href="{% url 'update' i.uid %}">Update</a></button>
+            <button class="btn btn-danger"><a href="{% url 'delete' i.uid %}">Delete</a></button>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+ 
+{% endblock %}

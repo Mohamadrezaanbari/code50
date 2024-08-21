@@ -1,0 +1,14 @@
+{% extends "CRUD/layout.html" %}
+
+{% block title %}
+    <title>Enter User ID</title>
+{% endblock %}
+
+{% block content %}
+        <h1>Enter User IDs</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+{% endblock %}
